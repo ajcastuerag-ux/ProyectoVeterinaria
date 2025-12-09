@@ -1,0 +1,126 @@
+.pagina-cartoon {
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+.header-cartoon {
+  text-align: center;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  position: relative;
+}
+
+.header-cartoon::after {
+  content: "🐾";
+  position: absolute;
+  right: 50px;
+  top: -20px;
+  font-size: 50px;
+  opacity: 0.4;
+}
+
+.titulo-cartoon {
+  font-size: 42px;
+  color: #3f497f;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.subtitulo {
+  font-size: 18px;
+  color: #4b5563;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.contenedor-cartoon {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.cargando {
+  text-align: center;
+  color: #555;
+}
+
+.grid-vets-cartoon {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 35px;
+}
+
+.card-vet-cartoon {
+  background: #ffffff;
+  border-radius: 35px;
+  padding: 22px;
+  text-align: center;
+  border: 4px solid #e5f5ff;
+  box-shadow: 8px 8px 0 #c9e8ff;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.card-vet-cartoon:hover {
+  transform: translateY(-6px);
+  box-shadow: 10px 10px 0 #bde0ff;
+}
+
+.foto-vet-cartoon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cara {
+  width: 85px;
+  height: 85px;
+  background: #fef6e4;
+  border-radius: 50%;
+  font-size: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 4px 4px 0 #f3dcb1;
+}
+
+.nombre-vet {
+  margin: 10px 0 0 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #3f497f;
+}
+
+.etiqueta-especialidad {
+  display: inline-block;
+  margin-top: 6px;
+  background: #e9faff;
+  color: #2c698d;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  border: 2px solid #bde7ff;
+}
+
+.info-vet {
+  margin-top: 15px;
+  text-align: left;
+  color: #4b5563;
+}
+
+.info-vet p {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+.info-vet strong {
+  color: #3f497f;
+}
+
+.iconito {
+  font-size: 18px;
+}

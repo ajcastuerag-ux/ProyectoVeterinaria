@@ -1,0 +1,58 @@
+<div class="pagina-cartoon">
+  <div class="contenedor-cartoon">
+    <div class="header-cartoon">
+      <h1 class="titulo-cartoon">Listado de Mascotas</h1>
+      <p class="subtitulo">Consulta todas las mascotas registradas</p>
+    </div>
+    <br>
+    @if(cargando()){
+    <p class="cargando">🐾 Cargando datos...</p>
+    }
+    @if(!cargando() && mascotas().length > 0){
+    <div class="grid-vets-cartoon">
+      @for(m of mascotas(); track m.Id_mascota){
+      <div class="card-vet-cartoon">
+        <!-- FOTO  -->
+        <div class="foto-vet-cartoon">
+          <div class="cara">🐶</div>
+        </div>
+        <!-- NOMBRE -->
+        <h3 class="nombre-vet">{{ m.nombre }}</h3>
+        <!-- ESPECIE -->
+        <span class="etiqueta-especialidad">{{ m.especie }}</span>
+        <!-- INFO -->
+        <div class="info-vet">
+          <p>
+            <span class="iconito">📌</span>
+            <strong>Raza:</strong> {{ m.raza }}
+          </p>
+
+          <p>
+            <span class="iconito">⚥</span>
+            <strong>Sexo:</strong> {{ m.sexo }}
+          </p>
+
+          <p>
+            <span class="iconito">🎂</span>
+            <strong>Nacimiento:</strong> {{ m.fecha_nacimiento }}
+          </p>
+
+          <p>
+            <span class="iconito">🎨</span>
+            <strong>Color:</strong> {{ m.color }}
+          </p>
+
+          <p>
+            <span class="iconito">👤</span>
+            <strong>Propietario:</strong> {{ m.nombre_propietario }}
+          </p>
+        </div>
+      </div>
+      }
+    </div>
+    }
+    @if(!cargando() && mascotas().length === 0){
+    <p class="cargando">No hay mascotas registradas 🐾</p>
+    }
+  </div>
+</div>

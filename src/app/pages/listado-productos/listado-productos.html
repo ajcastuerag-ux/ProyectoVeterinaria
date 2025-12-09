@@ -1,0 +1,34 @@
+<div class="pagina-cartoon">
+  <div class="productos-container">
+    <div class="header-cartoon">
+      <h1 class="titulo-cartoon">Listado de Productos</h1>
+      <p class="subtitulo">Consulta todas las mascotas registradas</p>
+    </div>
+    <br>
+    <div class="grid-productos">
+      <div class="card-producto" *ngFor="let producto of productos()">
+
+        <img [src]="getImagenPorCategoria(producto.categoria)" alt="Imagen del producto" class="img-producto" />
+
+        <h3 class="producto-nombre">{{ producto.nombre }}</h3>
+        <p class="producto-marca">Marca: {{ producto.marca }}</p>
+
+        <p class="producto-desc">{{ producto.descripcion }}</p>
+
+        <div class="producto-detalles">
+          <span class="precio">${{ producto.precio }}</span>
+          <span class="stock">Stock: {{ producto.stock }}</span>
+        </div>
+
+        <span class="categoria">{{ producto.categoria }}</span>
+
+        <span class="estado" [ngClass]="{
+          'estado-activo': producto.estado === 'activo',
+          'estado-inactivo': producto.estado === 'inactivo'
+        }">
+          {{ producto.estado }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

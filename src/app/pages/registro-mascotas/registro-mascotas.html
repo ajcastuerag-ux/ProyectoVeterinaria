@@ -1,0 +1,120 @@
+<div class="background">
+  <div class="light-wrapper">
+    <div class="card-form">
+
+      <h2 class="text-center mb-4 fw-bold" style= "color: #a04938">Mascotas</h2>
+
+      <form #formMascota="ngForm" (ngSubmit)="onSubmit(formMascota)" class="row g-4" novalidate>
+
+        <div class="form-alert" *ngIf="formMascota.submitted && formMascota.invalid">
+          Por favor, completa todos los campos requeridos antes de guardar la mascota.
+        </div>
+
+        <!-- Nombre -->
+        <div class="col-12  position-relative">
+          <label class="form-label fw-semibold">Nombre</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-paw-fill"></i></span>
+            <input type="text" class="form-control clean-input" name="nombre"
+                   [(ngModel)]="model.nombre" placeholder="Nombre de la mascota" required minlength="2" #nombre="ngModel">
+          </div>
+          <small class="error-msg" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <span *ngIf="nombre.errors?.['required']">Por favor, ingresa el nombre de tu mascota</span>
+            <span *ngIf="nombre.errors?.['minlength']">El nombre debe tener al menos 2 letras</span>
+          </small>
+        </div>
+
+        <!-- Especie -->
+        <div class="col-12 col-sm-6 position-relative">
+          <label class="form-label fw-semibold">Especie</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-egg-fried"></i></span>
+            <input type="text" class="form-control clean-input" name="especie"
+                   [(ngModel)]="model.especie" placeholder="Ej. Perro, Gato, Ave" required minlength="2" #especie="ngModel">
+          </div>
+          <small class="error-msg" *ngIf="especie.invalid && (especie.dirty || especie.touched)">
+            <span *ngIf="especie.errors?.['required']">Indica la especie de tu mascota</span>
+            <span *ngIf="especie.errors?.['minlength']">Debe tener al menos 2 letras</span>
+          </small>
+        </div>
+
+        <!-- Raza -->
+        <div class="col-12 col-sm-6 position-relative">
+          <label class="form-label fw-semibold">Raza</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-list-ul"></i></span>
+            <input type="text" class="form-control clean-input" name="raza"
+                   [(ngModel)]="model.raza" placeholder="Ej. Labrador, Siamés" required minlength="2" #raza="ngModel">
+          </div>
+          <small class="error-msg" *ngIf="raza.invalid && (raza.dirty || raza.touched)">
+            <span *ngIf="raza.errors?.['required']">No olvides especificar la raza</span>
+            <span *ngIf="raza.errors?.['minlength']">Debe tener al menos 2 letras</span>
+          </small>
+        </div>
+
+        <!-- Sexo -->
+        <div class="col-12 col-sm-6 position-relative">
+          <label class="form-label fw-semibold">Sexo</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-gender-ambiguous"></i></span>
+            <select class="form-select clean-input" name="sexo" [(ngModel)]="model.sexo" required #sexo="ngModel">
+              <option value="" disabled selected>Seleccione una opción</option>
+              <option>Macho</option>
+              <option>Hembra</option>
+            </select>
+          </div>
+          <small class="error-msg" *ngIf="sexo.invalid && (sexo.dirty || sexo.touched)">
+            <span *ngIf="sexo.errors?.['required']">Selecciona el sexo de tu mascota</span>
+          </small>
+        </div>
+
+        <!-- Fecha de nacimiento -->
+        <div class="col-12 col-sm-6 position-relative">
+          <label class="form-label fw-semibold">Fecha de nacimiento</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-calendar-date"></i></span>
+            <input type="date" class="form-control clean-input" name="fecha_nacimiento"
+                   [(ngModel)]="model.fecha_nacimiento" required #fecha="ngModel">
+          </div>
+          <small class="error-msg" *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)">
+            <span *ngIf="fecha.errors?.['required']">Por favor, indica la fecha de nacimiento</span>
+          </small>
+        </div>
+
+        <!-- Propietario -->
+        <div class="col-12 col-sm-6 position-relative">
+          <label class="form-label fw-semibold">Propietario</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+            <input type="text" class="form-control clean-input" name="nombre_propietario"
+                   [(ngModel)]="model.nombre_propietario" placeholder="Nombre del Propietario" required minlength="2" #propietario="ngModel">
+          </div>
+          <small class="error-msg" *ngIf="propietario.invalid && (propietario.dirty || propietario.touched)">
+            <span *ngIf="propietario.errors?.['required']">Ingresa el nombre del propietario</span>
+            <span *ngIf="propietario.errors?.['minlength']">Debe tener al menos 2 letras</span>
+          </small>
+        </div>
+
+        <!-- Color -->
+        <div class="col-12 col-sm-6 position-relative">
+          <label class="form-label fw-semibold">Color</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-brush"></i></span>
+            <input type="text" class="form-control clean-input" name="color"
+                   [(ngModel)]="model.color" placeholder="Ej. Café, Negro, Blanco" required minlength="2" #color="ngModel">
+          </div>
+          <small class="error-msg" *ngIf="color.invalid && (color.dirty || color.touched)">
+            <span *ngIf="color.errors?.['required']">No olvides el color de tu mascota</span>
+            <span *ngIf="color.errors?.['minlength']">Debe tener al menos 2 letras</span>
+          </small>
+        </div>
+
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary px-5 py-2 rounded-pill mt-3" [disabled]="formMascota.invalid">
+            Guardar Mascota
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
