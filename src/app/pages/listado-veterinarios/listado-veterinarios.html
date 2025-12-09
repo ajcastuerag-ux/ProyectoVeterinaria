@@ -1,0 +1,46 @@
+<div class="pagina-cartoon">
+  <div class="contenedor-listado">
+    <div class="header-cartoon">
+      <h1 class="titulo-cartoon"> Veterinarios Registrados</h1>
+      <p class="subtitulo">Consulta todos los veterinarios registradas</p>
+    </div>
+    <br>
+
+    @if(cargando()){
+    <div class="cargando">
+      <span class="loader"></span>
+      <p>Cargando datos...</p>
+    </div>
+    }
+
+    @if(!cargando() && veterinarios().length > 0){
+
+    <div class="grid-vets">
+
+      @for(v of veterinarios(); track v.Id_vet){
+
+      <div class="card-vet">
+
+        <div class="vet-foto">
+          <img [src]="v.imagen" alt="Foto del veterinario" class="vet-img" />
+        </div>
+
+        <h3 class="vet-nombre">{{ v.nombre_completo }}</h3>
+        <span class="vet-especialidad">{{ v.especialidad }}</span>
+
+        <div class="vet-info">
+
+          <p><strong>📞 Tel:</strong> {{ v.telefono }}</p>
+          <p><strong>📧 Correo:</strong> {{ v.correo }}</p>
+          <p><strong>⏰ Horario:</strong> {{ v.horario_disponible }}</p>
+          <p><strong>🎓 Experiencia:</strong> {{ v.anos_experiencia }} años</p>
+          <p><strong>🪪 Cédula:</strong> {{ v.cedula_profesional }}</p>
+          <p><strong>📝 Observaciones:</strong> {{ v.observaciones }}</p>
+
+        </div>
+      </div>
+      }
+    </div>
+    }
+  </div>
+</div>

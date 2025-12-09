@@ -1,0 +1,123 @@
+// Estilos del Footer Principal
+.main-footer {
+    background-color: #8fa79f;
+    padding: 60px 0 20px 0;
+    color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    padding-bottom: 30px;
+}
+
+.footer-logo {
+    font-family: Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: #f0f0f0;
+    margin-bottom: 25px;
+}
+
+.footer-heading {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.footer-link-phone,
+.footer-link-email {
+    display: block;
+    color: #f0f0f0;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.footer-link-phone:hover,
+.footer-link-email:hover {
+    color: #ffffff;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.social-icon {
+    color: #f0f0f0;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #ffffff;
+}
+
+.footer-links-group {
+    margin-bottom: 30px;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-divider {
+    border-top: 1px solid rgba(240, 240, 240, 0.5);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+}
+
+.footer-policies a {
+    color: #f0f0f0;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.footer-policies a:hover {
+    color: #ffffff;
+}
+
+@media (min-width: 768px) {
+    .footer-policies {
+        text-align: right;
+    }
+}
+
+@media (min-width: 992px) {
+    .footer-content .row {
+        display: flex;
+        justify-content: space-between;
+    }
+    .footer-contact {
+        flex: 0 0 30%;
+        max-width: 30%;
+    }
+    .footer-links-group:nth-child(2),
+    .footer-links-group:nth-child(3) {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+    .footer-links-group {
+        text-align: left;
+    }
+}

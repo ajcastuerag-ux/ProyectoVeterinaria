@@ -1,0 +1,55 @@
+<div class="pagina-cartoon">
+  <div class="contenedor-principal">
+    <div class="header-cartoon">
+      <h1 class="titulo-cartoon">Servicios Registrados</h1>
+      <p class="subtitulo">Consulta todos los servicios registradas</p>
+    </div>
+    <br>
+
+    @if(cargando()){
+    <p class="cargando-estilo">Cargando servicios...</p>
+    }
+
+    @if(!cargando() && servicios().length > 0){
+
+    <div class="grid-servicios">
+      @for(s of servicios(); track s.Id_servicio){
+
+      <div class="card-servicio">
+
+        <div class="card-header-servicio">
+          <span class="icono-servicio-moderno">
+            {{ getIcono(s.categoria) }}
+          </span>
+          <div class="titulo-grupo">
+            <h3 class="titulo-card-servicio">{{ s.nombre_servicio }}</h3>
+            <p class="categoria-card-servicio">{{ s.categoria }}</p>
+          </div>
+        </div>
+
+        <div class="detalles-servicio">
+          <p class="detalle-item"><strong>ID:</strong> <span>{{ s.Id_servicio }}</span></p>
+          <p class="detalle-item"><strong>Descripción:</strong> <span>{{ s.descripcion }}</span></p>
+          <p class="detalle-item"><strong>Precio:</strong> <span class="precio-resaltado">${{ s.precio }}</span></p>
+          <p class="detalle-item"><strong>Fecha:</strong> <span>{{ s.fecha }}</span></p>
+          <p class="detalle-item"><strong>Duración:</strong> <span>{{ s.duracion }}</span></p>
+          <p class="detalle-item"><strong>Mascota:</strong> <span>{{ s.Id_mascota }}</span></p>
+          <p class="detalle-item"><strong>Veterinario:</strong> <span>{{ s.Id_vet }}</span></p>
+        </div>
+
+        <div class="card-acciones">
+          <div class="estado-badge-moderno {{ s.estado }}">
+            {{ s.estado }}
+          </div>
+        </div>
+
+      </div>
+      }
+    </div>
+    }
+    @if(!cargando() && servicios().length === 0){
+    <p class="cargando-estilo">No hay servicios registrados.</p>
+    }
+
+  </div>
+</div>

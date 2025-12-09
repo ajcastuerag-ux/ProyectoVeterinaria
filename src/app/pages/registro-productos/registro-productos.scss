@@ -1,0 +1,102 @@
+.background {
+  position: relative;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(#dabb0841),
+    url('https://previews.123rf.com/images/amalga/amalga1502/amalga150200045/36801891-set-of-accessories-for-dogs-vector-hand-drawn-illustration-isolated-on-white.jpg') center;
+  background-size: 500px 500px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.background>* {
+  position: relative;
+  z-index: 2;
+}
+
+.form-wrapper h1 {
+  font-size: 3rem;
+  color: black;
+  margin-top: 35px;
+  //margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.light-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.card-form {
+  max-width: 1100px;
+  width: 100%;
+  background: #fff;
+  border-radius: 15px;
+  padding: 45px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.input-group-text {
+  background: #f1f1f1;
+  font-size: 1.1rem;
+}
+
+.clean-input:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 3px rgba(13, 110, 253, 0.4);
+}
+
+.form-alert {
+  background: #fdecea;
+  color: #e74c3c;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border-color: #e74c3c;
+}
+
+input.ng-valid.ng-touched,
+select.ng-valid.ng-touched {
+  border-color: #6c63ff;
+}
+
+.error-msg {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+  font-style: italic;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: #574fd6;
+  transform: translateY(-2px);
+}
+
+button[type="submit"]:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

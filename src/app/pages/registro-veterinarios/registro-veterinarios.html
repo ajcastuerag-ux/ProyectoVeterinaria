@@ -1,0 +1,153 @@
+<div class="background">
+  <div class="light-wrapper ">
+    <div class="card-form ">
+
+      <h2 class="text-center mb-4 fw-bold" style="color: #a04938">Veterinarios</h2>
+      <form #formVet="ngForm" (ngSubmit)="onSubmit(formVet)" class="row g-4" novalidate>
+
+        <div class="form-alert" *ngIf="formVet.submitted && formVet.invalid">
+          Por favor, completa correctamente los campos requeridos.
+        </div>
+
+        <!-- Nombre Completo -->
+        <div class="col-12 position-relative">
+          <label class="form-label fw-semibold">Nombre completo</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+            <input type="text" class="form-control clean-input" name="nombre_completo"
+              [(ngModel)]="model.nombre_completo" placeholder="Nombre y apellidos" required minlength="2"
+              #nombre_completo="ngModel" />
+          </div>
+          <small class="error-msg"
+            *ngIf="nombre_completo.invalid && (nombre_completo.dirty || nombre_completo.touched)">
+            <span *ngIf="nombre_completo.errors?.['required']">El nombre completo es obligatorio</span>
+            <span *ngIf="nombre_completo.errors?.['minlength']">Debe tener al menos 2 caracteres</span>
+          </small>
+        </div>
+
+        <!-- Especialidad -->
+        <div class="col-12 col-sm-6  position-relative">
+          <label class="form-label fw-semibold">Especialidad</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-mortarboard"></i></span>
+            <input type="text" class="form-control clean-input" name="especialidad" [(ngModel)]="model.especialidad"
+              placeholder="Ej. Cirugía, Dermatología" required minlength="2" #especialidad="ngModel" />
+          </div>
+          <small class="error-msg" *ngIf="especialidad.invalid && (especialidad.dirty || especialidad.touched)">
+            <span *ngIf="especialidad.errors?.['required']">La especialidad es obligatoria</span>
+            <span *ngIf="especialidad.errors?.['minlength']">Debe tener al menos 2 caracteres</span>
+          </small>
+        </div>
+
+        <!-- Teléfono -->
+        <div class="col-12 col-sm-6 position-relative">
+          <label class="form-label fw-semibold">Teléfono</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+            <input type="tel" class="form-control clean-input" name="telefono" [(ngModel)]="model.telefono"
+              placeholder="Número de contacto" required pattern="[0-9]{7,15}" #telefono="ngModel" />
+          </div>
+          <small class="error-msg" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+            <span *ngIf="telefono.errors?.['required']">El teléfono es obligatorio</span>
+            <span *ngIf="telefono.errors?.['pattern']">Ingresa un teléfono válido (solo números, 7-15 dígitos)</span>
+          </small>
+        </div>
+
+        <!-- Correo -->
+        <div class="col-12 col-sm-6  position-relative">
+          <label class="form-label fw-semibold">Correo</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+            <input type="email" class="form-control clean-input" name="correo" [(ngModel)]="model.correo"
+              placeholder="correo@veterinaria.com" required #correo="ngModel" />
+          </div>
+          <small class="error-msg" *ngIf="correo.invalid && (correo.dirty || correo.touched)">
+            <span *ngIf="correo.errors?.['required']">El correo es obligatorio</span>
+            <span *ngIf="correo.errors?.['email']">Ingresa un correo válido</span>
+          </small>
+        </div>
+
+        <!-- Horario Disponible -->
+        <div class="col-12 col-sm-6  position-relative">
+          <label class="form-label fw-semibold">Horario disponible</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-clock"></i></span>
+            <input type="text" class="form-control clean-input" name="horario_disponible"
+              [(ngModel)]="model.horario_disponible" placeholder="Lunes a Viernes 9am-4pm" required minlength="5"
+              #horario="ngModel" />
+          </div>
+          <small class="error-msg" *ngIf="horario.invalid && (horario.dirty || horario.touched)">
+            <span *ngIf="horario.errors?.['required']">El horario es obligatorio</span>
+            <span *ngIf="horario.errors?.['minlength']">Debe tener al menos 5 caracteres</span>
+          </small>
+        </div>
+
+        <!-- Años de Experiencia -->
+        <div class="col-12 col-sm-6  position-relative">
+          <label class="form-label fw-semibold">Años de experiencia</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-clipboard-data"></i></span>
+            <input type="number" class="form-control clean-input" name="anos_experiencia"
+              [(ngModel)]="model.anos_experiencia" placeholder="Ej. 5" required min="0" #experiencia="ngModel" />
+          </div>
+          <small class="error-msg" *ngIf="experiencia.invalid && (experiencia.dirty || experiencia.touched)">
+            <span *ngIf="experiencia.errors?.['required']">Ingresa los años de experiencia</span>
+            <span *ngIf="experiencia.errors?.['min']">Debe ser 0 o más</span>
+          </small>
+        </div>
+
+        <!-- Cédula profesional -->
+        <div class="col-12 col-sm-6 position-relative">
+          <label class="form-label fw-semibold">Cédula profesional</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-file-earmark-text"></i></span>
+            <input type="text" class="form-control clean-input" name="cedula_profesional"
+              [(ngModel)]="model.cedula_profesional" placeholder="Número de cédula profesional" required minlength="5"
+              #cedula="ngModel" />
+          </div>
+          <small class="error-msg" *ngIf="cedula.invalid && (cedula.dirty || cedula.touched)">
+            <span *ngIf="cedula.errors?.['required']">La cédula es obligatoria</span>
+            <span *ngIf="cedula.errors?.['minlength']">Debe tener al menos 5 caracteres</span>
+          </small>
+        </div>
+
+        <!-- Observaciones -->
+        <div class="col-12 position-relative">
+          <label class="form-label fw-semibold">Observaciones</label>
+          <div class="input-group">
+            <span class="input-group-text align-items-start pt-2"><i class="bi bi-chat-left-text"></i></span>
+            <textarea class="form-control clean-input" name="observaciones" [(ngModel)]="model.observaciones"
+              placeholder="Notas adicionales" rows="3"></textarea>
+          </div>
+        </div>
+
+        <!-- Imagen (URL) -->
+        <div class="col-12 col-sm-6 position-relative">
+          <label class="form-label fw-semibold">Imagen (URL)</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-link-45deg"></i></span>
+            <input type="text" class="form-control clean-input" name="imagen" [(ngModel)]="model.imagen"
+              placeholder="Pega aquí la URL de la imagen" required minlength="5" #imagen="ngModel" />
+          </div>
+          <small class="error-msg" *ngIf="imagen.invalid && (imagen.dirty || imagen.touched)">
+            <span *ngIf="imagen.errors?.['required']">La URL de la imagen es obligatoria</span>
+            <span *ngIf="imagen.errors?.['minlength']">Debe tener al menos 5 caracteres</span>
+          </small>
+        </div>
+
+        <!-- Vista previa -->
+        <div *ngIf="model.imagen" class="col-12 text-center">
+          <img [src]="model.imagen" class="img-preview mt-3 shadow-sm" alt="Imagen seleccionada">
+        </div>
+
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-primary px-5 py-2 rounded-pill mt-3" [disabled]="formVet.invalid">
+            Guardar Veterinario
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+</div>

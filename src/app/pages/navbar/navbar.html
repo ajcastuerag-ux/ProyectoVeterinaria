@@ -1,0 +1,143 @@
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/">
+      <img src="https://lirp.cdn-website.com/5b75a645/dms3rep/multi/opt/veterinaria+leon-160w.png"
+        alt="SimiPetCare Logo" class="logo-img">
+      <span class="logo-text">Huellitas del Alma</span>
+    </a>
+    <button class="navbar-toggler stylish-toggler custom-toggler d-lg-none" type="button"
+      (click)="isCollapsed = !isCollapsed" [class.open]="!isCollapsed" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="navbar-collapse d-none d-lg-block">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link custom-link" routerLink="/">Inicio</a>
+        </li>
+
+        <li class="nav-item dropdown" ngbDropdown routerLinkActive="active">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle id="navbarDropdownVeterinarios">Veterinarios</a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdownVeterinarios">
+            <a class="dropdown-item" routerLink="/registro-veterinarios">Regístrate</a>
+            <a class="dropdown-item" routerLink="/listado-veterinarios">Listas</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" ngbDropdown routerLinkActive="active">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle id="navbarDropdownServicios">Servicios</a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdownServicios">
+            <a class="dropdown-item" routerLink="/registro-servicios">Registra</a>
+            <a class="dropdown-item" routerLink="/listado-servicios">Listas</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" ngbDropdown routerLinkActive="active">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle id="navbarDropdownMascotas">Mascotas</a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdownMascotas">
+            <a class="dropdown-item" routerLink="/registro-mascotas">Registra</a>
+            <a class="dropdown-item" routerLink="/listado-mascotas">Listas</a>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown" ngbDropdown routerLinkActive="active">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle id="navbarDropdownProductos">Productos</a>
+          <div ngbDropdownMenu aria-labelledby="navbarDropdownProductos">
+            <a class="dropdown-item" routerLink="/registro-productos">Registra</a>
+            <a class="dropdown-item" routerLink="/listado-productos">Listas</a>
+          </div>
+        </li>
+      </ul>
+
+      <form class="d-flex">
+        <button class="btn btn-primary custom-visit-button" type="button" (click)="scrollToFooter()">
+          VISÍTANOS
+        </button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+
+<div class="sidebar-overlay" [class.open]="!isCollapsed" (click)="isCollapsed = true"></div>
+
+<div class="sidebar modern-sidebar" [class.open]="!isCollapsed">
+
+
+  <ul class="sidebar-nav modern-sidebar-nav">
+    <li class="nav-item sidebar-item-card modern-sidebar-item" routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a class="sidebar-link modern-sidebar-link" routerLink="/" (click)="isCollapsed = true">
+        <i class="fas fa-home me-3 modern-sidebar-icon"></i> <span class="modern-link-text">Inicio</span>
+      </a>
+    </li>
+
+    <li class="nav-item sidebar-dropdown modern-sidebar-item">
+      <a class="sidebar-link dropdown-toggle modern-sidebar-link" (click)="toggleDropdown('veterinarios')">
+        <div class="link-content">
+          <i class="fas fa-user-md me-3 modern-sidebar-icon"></i> <span class="modern-link-text">Veterinarios</span>
+        </div>
+        <i class="fas fa-chevron-right dropdown-indicator" [class.rotated]="openDropdown === 'veterinarios'"></i>
+      </a>
+      <div class="sidebar-dropdown-menu modern-dropdown-menu" [class.open]="openDropdown === 'veterinarios'">
+        <a class="dropdown-item-mobile modern-dropdown-item" routerLink="/registro-veterinarios"
+          (click)="isCollapsed = true">Regístrate</a>
+        <a class="dropdown-item-mobile modern-dropdown-item" routerLink="/listado-veterinarios"
+          (click)="isCollapsed = true">Listas</a>
+      </div>
+    </li>
+
+    <li class="nav-item sidebar-dropdown modern-sidebar-item">
+      <a class="sidebar-link dropdown-toggle modern-sidebar-link" (click)="toggleDropdown('servicios')">
+        <div class="link-content">
+          <i class="fas fa-tools me-3 modern-sidebar-icon"></i> <span class="modern-link-text">Servicios</span>
+        </div>
+        <i class="fas fa-chevron-right dropdown-indicator" [class.rotated]="openDropdown === 'servicios'"></i>
+      </a>
+      <div class="sidebar-dropdown-menu modern-dropdown-menu" [class.open]="openDropdown === 'servicios'">
+        <a class="dropdown-item-mobile modern-dropdown-item" routerLink="/registro-servicios"
+          (click)="isCollapsed = true">Registra</a>
+        <a class="dropdown-item-mobile modern-dropdown-item" routerLink="/listado-servicios"
+          (click)="isCollapsed = true">Listas</a>
+      </div>
+    </li>
+
+    <li class="nav-item sidebar-dropdown modern-sidebar-item">
+      <a class="sidebar-link dropdown-toggle modern-sidebar-link" (click)="toggleDropdown('mascotas')">
+        <div class="link-content">
+          <i class="fas fa-paw me-3 modern-sidebar-icon"></i> <span class="modern-link-text">Mascotas</span>
+        </div>
+        <i class="fas fa-chevron-right dropdown-indicator" [class.rotated]="openDropdown === 'mascotas'"></i>
+      </a>
+      <div class="sidebar-dropdown-menu modern-dropdown-menu" [class.open]="openDropdown === 'mascotas'">
+        <a class="dropdown-item-mobile modern-dropdown-item" routerLink="/registro-mascotas"
+          (click)="isCollapsed = true">Registra</a>
+        <a class="dropdown-item-mobile modern-dropdown-item" routerLink="/listado-mascotas"
+          (click)="isCollapsed = true">Listas</a>
+      </div>
+    </li>
+
+    <li class="nav-item sidebar-dropdown modern-sidebar-item">
+      <a class="sidebar-link dropdown-toggle modern-sidebar-link" (click)="toggleDropdown('productos')">
+        <div class="link-content">
+          <i class="fas fa-shopping-bag me-3 modern-sidebar-icon"></i> <span class="modern-link-text">Productos</span>
+        </div>
+        <i class="fas fa-chevron-right dropdown-indicator" [class.rotated]="openDropdown === 'productos'"></i>
+      </a>
+      <div class="sidebar-dropdown-menu modern-dropdown-menu" [class.open]="openDropdown === 'productos'">
+        <a class="dropdown-item-mobile modern-dropdown-item" routerLink="/registro-productos"
+          (click)="isCollapsed = true">Registra</a>
+        <a class="dropdown-item-mobile modern-dropdown-item" routerLink="/listado-productos"
+          (click)="isCollapsed = true">Listas</a>
+      </div>
+    </li>
+  </ul>
+
+  <div class="sidebar-footer modern-sidebar-footer">
+    <button class="btn visit-btn w-100 modern-visit-btn" (click)="isCollapsed = true">
+      <i class="fas fa-map-marker-alt me-2"></i> VISÍTANOS
+    </button>
+  </div>
+</div>
